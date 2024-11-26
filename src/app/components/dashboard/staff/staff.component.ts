@@ -45,7 +45,7 @@ export class StaffComponent implements OnInit {
       endDate: new FormControl(null, [Validators.required]),
       reason: new FormControl(null, [Validators.required]),
       leaveDays: "",
-      leaveStatus: "Pending",
+      leaveStatus: "",
       isApproved: false,
       isRejeted: false
     });
