@@ -1,0 +1,100 @@
+<div class="container">
+  <div class="row">
+    <div class="loginForm" *ngIf="!newRegistartion">
+      <form nz-form [formGroup]="validateForm" class="login-form p-5" (ngSubmit)="submitForm()">
+        <h3 class="my-4 text-center text-primary">Login</h3>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <div nz-row class="login-form-margin">
+          <div nz-col [nzSpan]="12">
+            <label nz-checkbox formControlName="remember">
+              <span>Remember me</span>
+            </label>
+          </div>
+          <div nz-col [nzSpan]="12">
+            <a class="login-form-forgot">Forgot password</a>
+          </div>
+        </div>
+        <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+          Log in
+        </button>
+        Not Registered Yet ?
+        <a (click)="this.newRegistartion = !this.newRegistartion">register now !</a>
+      </form>
+    </div>
+
+    <div class="regForm" *ngIf="newRegistartion">
+      <form action="" [formGroup]="regForm" (ngSubmit)="signUp()">
+        <h3 class="text-center text-primary my-3">Signup</h3>
+        <ng-container *ngFor="let role of ['HOD', 'staff']">
+          <input type="radio" [value]="role" style="margin-right: 5px" formControlName="userrole" />
+          <label [for]="role" style="margin-right: 15px">{{ role }}</label>
+        </ng-container>
+        <div class="d-flex justify-content-between mt-3">
+          <div class="">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" class="form-control" id="fname" name="fname" formControlName="fname" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control" id="email" name="email" formControlName="email" />
+            </div>
+          </div>
+
+          <div class="">
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" class="form-control" id="lname" name="lname" formControlName="lname" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact">Contact</label>
+              <input type="text" class="form-control" id="contact" name="contact" formControlName="contact" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group my-2">
+          <select name="departmet" id="departmet" class="form-control" formControlName="departmet">
+            <option [ngValue]="null" class="form-control">
+              Select Department
+            </option>
+            <option *ngFor="let dept of departments" value="{{ dept }}" class="form-control">
+              {{ dept }}
+            </option>
+          </select>
+        </div>
+
+        <div class="userPass d-flex justify-content-between">
+          <div class="form-group">
+            <label for="user">Username</label>
+            <input type="text" class="form-control" id="user" name="user" formControlName="user" />
+          </div>
+          <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="text" class="form-control" id="" pass name="pass" formControlName="pass" />
+          </div>
+        </div>
+
+        <button class="btn btn-primary w-100 mt-3">Register</button>
+        <p class="mt-3">
+          Alreday Having Account ?
+          <a (click)="this.newRegistartion = !this.newRegistartion">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

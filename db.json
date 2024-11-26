@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": "cb27",
+      "userrole": "staff",
+      "fname": "cc",
+      "lname": "cc",
+      "email": "cc@gmail.com",
+      "contact": "000000",
+      "departmet": "Sales",
+      "user": "cc",
+      "pass": "zaq1"
+    },
+    {
+      "id": "7c17",
+      "userrole": "HOD",
+      "fname": "Rns",
+      "lname": "sutare",
+      "email": "rn@gmail.com",
+      "contact": "8623882700",
+      "departmet": "Developer",
+      "user": "Rns",
+      "pass": "zaq1"
+    }
+  ],
+  "staffLeaves": [
+    {
+      "id": "9e33",
+      "startDate": "2024-09-04",
+      "endDate": "2024-09-05",
+      "reason": "hggfg",
+      "leaveDays": "",
+      "leaveStatus": "",
+      "isApproved": false,
+      "isRejeted": false
+    },
+    {
+      "id": "9363",
+      "startDate": "2024-09-05",
+      "endDate": "2024-09-07",
+      "reason": "kjjhkc",
+      "leaveDays": "",
+      "leaveStatus": "",
+      "isApproved": false,
+      "isRejeted": false
+    },
+    {
+      "id": "2902",
+      "startDate": "2024-09-17",
+      "endDate": "2024-09-20",
+      "reason": "dfsvdf",
+      "leaveDays": "",
+      "leaveStatus": "",
+      "isApproved": false,
+      "isRejeted": false
+    },
+    {
+      "id": "d75e",
+      "startDate": "2024-11-27",
+      "endDate": "2024-11-30",
+      "reason": "any",
+      "leaveDays": "",
+      "leaveStatus": "Pending",
+      "isApproved": false,
+      "isRejeted": false
+    }
+  ],
+  "leaveStatus": [
+    {
+      "status": "",
+      "id": "0c58"
+    }
+  ]
+}

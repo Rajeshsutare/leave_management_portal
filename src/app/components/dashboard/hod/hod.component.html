@@ -1,0 +1,35 @@
+<section class="hodDashboard">
+    <ng-container *ngIf="staffLeaveData.length === 0">
+        <h3 class="text-danger">
+            No leave Request Available
+        </h3>
+        
+    </ng-container>
+</section>
+<div class="d-flex justify-content-end m-3">
+    <button class="btn btn-danger" routerLink="/logout">Logout</button>
+</div>
+<section class="hodDashboard1">
+    <ng-container *ngIf="staffLeaveData.length >= 1">
+        <div class="card" *ngFor="let data of staffLeaveData">
+            <div class="card-body">
+                <p>Leave for {{data.startDate | date}} To {{data.endDate | date}} </p>
+                <ng-container>
+                    <p >Number of days {{data.leaveDays}}</p>
+                </ng-container>
+                <p><strong>Reason</strong></p>
+                <p>{{data.reason}}</p>
+                <div class="btns d-flex justify-content-between">
+                    <button class="btn btn-success" type="submit" *ngIf="!data.isApproved"
+                        (click)="onApproved(data.id, data.email)">Approved</button>
+                    <i class="fa-solid fa-check fa-3x text-success" *ngIf="data.isApproved"></i> 
+                    <button class="btn btn-danger" type="submit" (click)="onRejected(data.id, data.email)" *ngIf="!data.isRejeted">Reject</button>
+                    <i class="fa-solid fa-check fa-3x text-danger" *ngIf="data.isRejeted"></i> 
+
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</section>
+
+
