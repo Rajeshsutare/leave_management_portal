@@ -19,72 +19,85 @@ export class StaffComponent implements OnInit {
   leaveForm!: FormGroup;
   showLeaveForm: boolean = false;
   dashBoardData: boolean = false;
-  leaveData:any=[];
-  noOfDays: any;
-  totalLeaves:number=28;
-  approvedLeave :number=0;
-  rejectedLeave :number=0;
+  leaveData: any = [];
+  // noOfDays: any;
+  totalLeaves: number = 28;
+  approvedLeave : number = 0;
+  rejectedLeave : number = 0;
   constructor(
     private _fb: FormBuilder,
     private _userRegService: UserRegService
-  ) {}
-  ngOnInit(): void {
-    this.createLeaveForm();
-    this._userRegService.getLeaveData().subscribe(res=>{
+  ) { 
+      this._userRegService.getLeaveData().subscribe(res => {
       console.log(res);
       this.leaveData = res;
+      this.calcuteLaves();
     })
+  }
+  ngOnInit(): void {
+    this.createLeaveForm();
     
+
+
 
   }
 
-  
+
   createLeaveForm() {
     this.leaveForm = this._fb.group({
       startDate: new FormControl(null, [Validators.required]),
       endDate: new FormControl(null, [Validators.required]),
       reason: new FormControl(null, [Validators.required]),
       leaveDays: "",
-      leaveStatus: "",
+      leaveStatus: "Pending",
       isApproved: false,
       isRejeted: false
     });
-    
+
   }
 
   onLeaveform() {
     console.log(this.leaveForm.value);
-    this._userRegService.createLeave(this.leaveForm.value).subscribe(res=>{
+    this.calculateDiff();
+    this._userRegService.createLeave(this.leaveForm.value).subscribe(res => {
       console.log(res);
       this.leaveData = res;
-      this.leaveData.forEach((el:any)=>{
-        console.log(el);
-        // let start = new Date(this.leaveForm.controls['startDate'].value);
-        // let end = new Date(this.leaveForm.controls['endDate'].value);
-        // const time = Math.abs(end.getTime() - start.getTime());
-        // el.leaveDays  = time / (1000 * 3600 * 24);
-        // console.log(el.leaveDays);
-        
-        return;
-      })
-      })
-    
+      console.log(this.leaveData);
+      window.location.reload();
+    })
+
     this.showLeaveForm = !this.showLeaveForm;
   }
 
 
 
-  // calculateDiff() {
-  //   let start = new Date(this.leaveForm.controls['startDate'].value);
-  //   let end = new Date(this.leaveForm.controls['endDate'].value);
-  //   const time = Math.abs(end.getTime() - start.getTime());
-  //   this.noOfDays = time / (1000 * 3600 * 24);
-  // }
+  calculateDiff():any {
+    let start = new Date(this.leaveForm.controls['startDate'].value);
+    let end = new Date(this.leaveForm.controls['endDate'].value);
+    const time = Math.abs(end.getTime() - start.getTime());
+    const noOfDays = time / (1000 * 3600 * 24);
+    this.leaveForm.get('leaveDays')?.setValue(noOfDays);
+    console.log(this.leaveForm.get('leaveDays')?.value);
+    
+    
+  }
 
 
 
   calcuteLaves() {
-    this.totalLeaves = this.totalLeaves - this.approvedLeave;
+
+    this.leaveData.forEach((el:any)=>{
+     if(el.isApproved === true){
+      this.approvedLeave = this.approvedLeave + parseInt(el.leaveDays);
+     }else if(el.isRejeted === true){
+      this.rejectedLeave = this.rejectedLeave + parseInt(el.leaveDays) ;
+     }else{
+      this.totalLeaves;
+     }
+      
+    })
+
     
+
   }
 }

@@ -8,8 +8,8 @@ import { ILeaves, Iusers } from '../model/interfaces';
 })
 export class UserRegService {
 
-  baseUrl:string='http://localhost:3000/users';
   staffBaseUrl = 'http://localhost:3000/staffLeaves';
+  baseUrl:string='http://localhost:3000/users';
   leaveBaseUrl = 'http://localhost:3000/leaveStatus';
 
  
@@ -32,17 +32,13 @@ export class UserRegService {
   createLeave(obj:any):Observable<any>{
     return this._http.post<any>(this.staffBaseUrl,obj)
   }
-
-  updateLeave(leaveObj:any):Observable<any>{
-    return this._http.patch<any>(this.staffBaseUrl,leaveObj)
+  
+  getSingleLeaveObj(id:any){
+    return this._http.get<any>(`${this.staffBaseUrl}/${id}`)
   }
 
-  getAllLeaveStatus():Observable<any>{
-    return this._http.get<any>(this.leaveBaseUrl)
-  }
-
-  createLeaveStatus(obj:any):Observable<any>{
-    return this._http.post<any>(this.leaveBaseUrl,obj)
+  updateLeave(id:any,leaveObj:any):Observable<any>{
+    return this._http.patch<any>(`${this.staffBaseUrl}/${id}`,leaveObj)
   }
   
 }

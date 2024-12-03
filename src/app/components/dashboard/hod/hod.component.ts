@@ -8,11 +8,11 @@ import { UserRegService } from '../../../services/user-reg.service';
 })
 export class HODComponent implements OnInit {
   staffLeaveData: Array<any> = [];
-  noOfDays: any=[];
-  rejectedLeavesCount!: number ;
+  noOfDays: any = [];
+  rejectedLeavesCount!: number;
   constructor(private _userRegService: UserRegService) { }
   ngOnInit(): void {
-    
+
 
     this._userRegService.getLeaveData().subscribe((res) => {
       console.log(res);
@@ -24,56 +24,54 @@ export class HODComponent implements OnInit {
           let start = new Date(startdate);
           let end = new Date(endtdate);
           const time = Math.abs(end.getTime() - start.getTime());
-         e.leaveDays =  time / (1000 * 3600 * 24)
+          e.leaveDays = time / (1000 * 3600 * 24)
           console.log(this.staffLeaveData);
-  
+
           return;
         }
-  
+
       });
     });
- 
 
-
-  }
-  onApproved(eve: any, mail: any) {
-    this.staffLeaveData.find((ele: any) => {
-      if (ele.id === eve && ele.email === mail) {
-        console.log(ele);
-        ele.isApproved = true;
-        ele.isRejeted = false;
-        ele.leaveStatus = "Approved";
-        let updatedObj = {
-          ...ele
-        }
-        console.log(updatedObj);
-        this._userRegService.updateLeave(updatedObj).subscribe(res=>{
-          console.log(res);
-          
-        })
-      }
-    });
 
 
   }
+  onApproved(id: any, mail: any) {
+    console.log(id);
+    this._userRegService.getSingleLeaveObj(id).subscribe(res => {
+      console.log(res);
 
-  onRejected(eve: any, mail: any) {
-    this.staffLeaveData.find((ele: any) => {
-      if (ele.id === eve && ele.email === mail) {
-        console.log(ele);
-        ele.isRejeted = true;
-        ele.isApproved = false;
-        ele.leaveStatus = "Rejected";
-        let updatedObj = {
-          ...ele
-        }
-        console.log(updatedObj);
-        this._userRegService.updateLeave(updatedObj).subscribe(res=>{
+      if (res.id === id) {
+        res.isApproved = true;
+        res.isRejeted = false;
+        res.leaveStatus = "Approved";
+        this._userRegService.updateLeave(id, res).subscribe(res => {
           console.log(res);
-          
+          window.location.reload();
         })
       }
-    });
+
+    })
+
+
+
+
+  }
+
+  onRejected(id: any, mail: any) {
+    this._userRegService.getSingleLeaveObj(id).subscribe(res => {
+      console.log(res);
+      if (res.id === id) {
+        res.isApproved = false;
+        res.isRejeted = true;
+        res.leaveStatus = "Rejected";
+        this._userRegService.updateLeave(id, res).subscribe(res => {
+          console.log(res);
+          window.location.reload();
+        })
+      }
+
+    })
   }
 
 

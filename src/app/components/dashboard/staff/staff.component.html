@@ -6,10 +6,12 @@
   <ng-container *ngIf="!this.showLeaveForm">
     <div class="text-center">
       <h3 class="text-danger">Not Applied Any Leave Yet?</h3>
-      <button class="btn btn-primary" type="button" (click)="this.showLeaveForm = !this.showLeaveForm"
-        *ngIf="!showLeaveForm">
-        Apply Leave
-      </button>
+   <ng-container>
+    <button class="btn btn-primary" type="button" (click)="this.showLeaveForm = !this.showLeaveForm"
+    *ngIf="!showLeaveForm" [disabled]="approvedLeave >= 28  ">
+    Apply Leave
+  </button>
+   </ng-container>
     </div>
   </ng-container>
   <div class="">
@@ -25,7 +27,7 @@
             <span>Approved</span>
           </div>
           <div class="leaveInfo">
-            <h4 class="danger">00</h4>
+            <h4 class="danger">{{rejectedLeave}}</h4>
             <span>Rejected</span>
           </div>
         </div>
