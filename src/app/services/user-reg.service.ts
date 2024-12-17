@@ -10,7 +10,6 @@ export class UserRegService {
 
   staffBaseUrl = 'http://localhost:3000/staffLeaves';
   baseUrl:string='http://localhost:3000/users';
-  leaveBaseUrl = 'http://localhost:3000/leaveStatus';
 
  
 
@@ -37,8 +36,12 @@ export class UserRegService {
     return this._http.get<any>(`${this.staffBaseUrl}/${id}`)
   }
 
-  updateLeave(id:any,leaveObj:any):Observable<any>{
-    return this._http.patch<any>(`${this.staffBaseUrl}/${id}`,leaveObj)
+  updateLeave(leaveObj:any):Observable<any>{
+    return this._http.patch<any>(`${this.staffBaseUrl}/${leaveObj.id}`,leaveObj)
+  }
+
+  deleteLeave(id:any){
+    return this._http.delete<any>(`${this.staffBaseUrl}/${id}`)
   }
   
 }

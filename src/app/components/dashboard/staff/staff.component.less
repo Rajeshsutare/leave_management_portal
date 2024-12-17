@@ -2,26 +2,69 @@ nz-date-picker {
   margin: 0 8px 12px 0;
 }
 
-// nz-date-picker,
-// nz-range-picker {
-//   margin: 0 8px 12px 0;
-// }
+.hero-section {
+  background-color: #f2f4f4;
+}
+
+.logoutBtn {
+  margin: 10px 14px 0 0;
+}
 
 .leaveInfo {
   flex-direction: column;
   text-align: center;
   margin-right: 60px;
-  > h4 {
+
+  >h4 {
     margin-bottom: 0;
   }
 }
 
 .userCard {
+
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  > .card {
+
+  >.card {
     width: 400px;
     margin: 30px 30px;
+    // background-color: #6495ED ;
+    // color: #000;
   }
+}
+
+nz-avatar {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+::ng-deep .dropdownMenu :hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+::ng-deep .ant-modal-footer {
+  display: none;
+}
+
+::ng-deep .ant-modal-close-x {
+  display: none;
+}
+
+::ng-deep .ant-modal-header {
+  text-align: center !important;
+}
+
+.card-footer>span {
+  cursor: pointer;
+
+}
+
+::ng-deep.card-footer .editicons {
+  color: green;
+}
+
+::ng-deep.card-footer .deleteicons {
+  color: red;
 }

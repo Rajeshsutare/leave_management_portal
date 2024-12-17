@@ -1,18 +1,33 @@
-
-.hodDashboard{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hodDashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hodDashboard1{
-   display: flex; 
-   flex-wrap: wrap;
-   justify-content: center;
-   > .card{
+.hodDashboard1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  >.card {
     width: 400px;
     margin: 30px 30px;
-    
-   }
 
-} 
+  }
+
+}
+
+nz-avatar {
+  margin-top: 16px;
+  margin-right: 16px;
+}
+
+::ng-deep .dropdownMenu :hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}

@@ -8,7 +8,7 @@
       "email": "cc@gmail.com",
       "contact": "000000",
       "departmet": "Sales",
-      "user": "cc",
+      "user": "Rajesh",
       "pass": "zaq1"
     },
     {
@@ -25,50 +25,52 @@
   ],
   "staffLeaves": [
     {
-      "id": "d27e",
-      "startDate": "2024-12-04",
-      "endDate": "2024-12-06",
-      "reason": "ss",
-      "leaveDays": 2,
-      "leaveStatus": "Approved",
-      "isApproved": true,
-      "isRejeted": false
-    },
-    {
-      "id": "554b",
-      "startDate": "2024-12-09",
-      "endDate": "2024-12-13",
-      "reason": "dd",
-      "leaveDays": 4,
-      "leaveStatus": "Rejected",
-      "isApproved": false,
-      "isRejeted": true
-    },
-    {
-      "id": "198f",
-      "startDate": "2024-12-09",
-      "endDate": "2024-12-11",
-      "reason": "cc",
-      "leaveDays": 2,
-      "leaveStatus": "Rejected",
-      "isApproved": false,
-      "isRejeted": true
-    },
-    {
-      "id": "021c",
-      "startDate": "2024-12-04",
-      "endDate": "2024-12-06",
+      "id": "e535",
+      "startDate": "2024-12-12T07:29:09.851Z",
+      "endDate": "2024-12-13T07:29:12.019Z",
       "reason": "fun",
+      "leaveDays": 1,
+      "leaveStatus": "Approved",
+      "isApproved": true,
+      "isRejeted": false,
+      "userName": "Rajesh",
+      "departmentName": "Sales"
+    },
+    {
+      "id": "cb23",
+      "startDate": "2024-12-17T09:10:44.533Z",
+      "endDate": "2024-12-19T09:10:46.232Z",
+      "reason": "wedddd",
       "leaveDays": 2,
       "leaveStatus": "Approved",
       "isApproved": true,
-      "isRejeted": false
-    }
-  ],
-  "leaveStatus": [
+      "isRejeted": false,
+      "userName": "Rajesh",
+      "departmentName": "Sales"
+    },
     {
-      "status": "",
-      "id": "0c58"
+      "id": "1f9e",
+      "startDate": "2024-12-17T10:26:10.965Z",
+      "endDate": "2024-12-18T10:35:58.622Z",
+      "reason": "dfg",
+      "leaveDays": 1,
+      "leaveStatus": "Rejected",
+      "isApproved": false,
+      "isRejeted": true,
+      "userName": "Rajesh",
+      "departmentName": "Sales"
+    },
+    {
+      "id": "2f20",
+      "startDate": "2024-12-24T10:57:58.630Z",
+      "endDate": "2024-12-26T10:58:01.234Z",
+      "reason": "Tip to Heaven",
+      "leaveDays": 2,
+      "leaveStatus": "Pending",
+      "isApproved": false,
+      "isRejeted": false,
+      "userName": "Rajesh",
+      "departmentName": "Sales"
     }
   ]
 }

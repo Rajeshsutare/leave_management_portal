@@ -91,6 +91,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { HODComponent } from './components/dashboard/hod/hod.component';
 import { StaffComponent } from './components/dashboard/staff/staff.component';
+import { WildRoutesComponent } from './components/wild-routes/wild-routes.component';
 
 registerLocaleData(hi);
 
@@ -100,7 +101,8 @@ registerLocaleData(hi);
     DashboardComponent,
     LoginComponent,
     HODComponent,
-    StaffComponent
+    StaffComponent,
+    WildRoutesComponent
   ],
   imports: [
     BrowserModule,
